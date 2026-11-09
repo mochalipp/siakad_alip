@@ -1,0 +1,70 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Database\\Factories\\": "database/factories/",
+      "Database\\Seeders\\": "database/seeders/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "audit": {
+      "block-insecure": false
+    }
+  },
+  "description": "Sistem Informasi Akademik (SIAKAD) - PBO Pertemuan 12, TRPL 2A Politeknik Negeri Subang",
+  "extra": {
+    "laravel": {
+      "dont-discover": []
+    }
+  },
+  "keywords": [
+    "laravel",
+    "siakad",
+    "pbo"
+  ],
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "name": "polsub/siakad",
+  "prefer-stable": true,
+  "require": {
+    "dompdf/dompdf": "^2.0",
+    "guzzlehttp/guzzle": "^7.2",
+    "laravel/framework": "^9.0",
+    "laravel/sanctum": "^2.14.1",
+    "laravel/tinker": "^2.7",
+    "php": "^8.0.2"
+  },
+  "require-dev": {
+    "fakerphp/faker": "^1.9.1",
+    "laravel/pint": "^1.0",
+    "laravel/sail": "^1.0.1",
+    "mockery/mockery": "^1.4.4",
+    "nunomaduro/collision": "^6.1",
+    "phpunit/phpunit": "^9.5.10",
+    "spatie/laravel-ignition": "^1.0"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "@php artisan package:discover --ansi"
+    ],
+    "post-create-project-cmd": [
+      "@php artisan key:generate --ansi"
+    ],
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-update-cmd": [
+      "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+    ]
+  },
+  "type": "project"
+}
